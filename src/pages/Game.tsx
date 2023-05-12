@@ -1,9 +1,14 @@
+// TO-DO
+// If a user misses a question, show the correct answer, but ask that question again after all other questions have been asked
+// Currently, it immediately re-asks the question
+
 import React, { useState } from "react";
 
 type Question = {
   question: string;
   answer: string;
   options: string[];
+  explanation: string
 };
 
 type Props = {
@@ -68,16 +73,22 @@ const Game: React.FC<Props> = ({ questions }) => {
               {option}
             </button>
           ))}
-          {selectedOption !== "" && (
-            <div>
-              <p>
-                {selectedOption === questions[currentQuestionIndex].answer
-                  ? "Correct!"
-                  : `Wrong. The correct answer is ${questions[currentQuestionIndex].answer}.`}
-              </p>
-              {showNextButton && <button onClick={handleNextButtonClick}>Next</button>}
-            </div>
-          )}
+{selectedOption !== "" && (
+  <div>
+    <p>
+      {selectedOption === questions[currentQuestionIndex].answer ? (
+        <div>
+          <div>Correct!</div>
+          <div>{questions[currentQuestionIndex].explanation}</div>
+        </div>
+      ) : (
+        `Wrong. The correct answer is ${questions[currentQuestionIndex].answer}.`
+      )}
+    </p>
+    {showNextButton && <button onClick={handleNextButtonClick}>Next</button>}
+  </div>
+)}
+
         </div>
       )}
     </div>

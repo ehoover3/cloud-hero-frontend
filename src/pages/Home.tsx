@@ -4,12 +4,12 @@ function Home() {
   return (
     <div className='container'>
       <div id='home' className='flex-center flex-column'>
-        <h1>Quick Quiz</h1>
+        <h1>Cloud Cert Hero</h1>
         <a className='btn' href='/game'>
           Play
         </a>
-        <a className='btn' href='/highscores'>
-          High Scores
+        <a className='btn' href='/keyterms'>
+          Key Terms
         </a>
       </div>
     </div>
