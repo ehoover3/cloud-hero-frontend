@@ -6,7 +6,7 @@
 // Sort by Field:  Analytics, Application Integration, Compute, Containers, Database, Developer Tools, Management and Governance, Networking and Content Delivery, Security Identity and Compliance, Storage
 // See In-scope AWS services and features at https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf
 
-import "../assets/styles.css";
+import "../assets/stylesheets/styles.css";
 
 interface KeyTerm {
   name: string;
@@ -32,7 +32,7 @@ function KeyTerms({ terms }: KeyTermsProps) {
             <div>
               {term.youtube.map((link, index) => (
                 <div>
-                  <a key={link} href={link}>
+                  <a key={link} href={link} target="_blank">
                     YouTube Video {index+1}
                   </a>
                 </div>
