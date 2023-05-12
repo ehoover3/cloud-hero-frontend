@@ -4,10 +4,11 @@ import { Routes, Route } from "react-router-dom";
 import { questions } from "./data/practiceTestQuestions";
 import { terms } from "./data/keyTerms";
 
-import Game from "./pages/Game";
+import PracticeExam from "./pages/PracticeExam";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import KeyTerms from "./pages/KeyTerms";
+import HandsOnTutorials from "./pages/HandsOnTutorials";
 
 function App() {
  
@@ -15,8 +16,9 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='game' element={<Game questions={questions} />} />
+        <Route path='practiceexam' element={<PracticeExam questions={questions} />} />
         <Route path='keyterms' element={<KeyTerms terms={terms} />} />
+        <Route path='handsontutorials' element={<HandsOnTutorials />} />
         <Route path='*' element={<NoMatch />} />
       </Routes>
     </div>

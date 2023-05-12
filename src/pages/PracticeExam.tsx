@@ -15,7 +15,7 @@ type Props = {
   questions: Question[];
 };
 
-const Game: React.FC<Props> = ({ questions }) => {
+const PracticeExam: React.FC<Props> = ({ questions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -95,4 +95,4 @@ const Game: React.FC<Props> = ({ questions }) => {
   );
 };
 
-export default Game;
+export default PracticeExam;
