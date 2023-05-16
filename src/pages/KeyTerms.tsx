@@ -13,6 +13,7 @@ interface KeyTerm {
   type: string;
   definition: string;
   youtube: string[];
+  notes: string[]
 }
 
 interface KeyTermsProps {
@@ -36,6 +37,15 @@ function KeyTerms({ terms }: KeyTermsProps) {
                     YouTube Video {index+1}
                   </a>
                 </div>
+              ))}
+            </div>
+            <div>
+              {term.notes.map((note, index) => (
+                
+                  <li key={index}>
+                    {note}
+                  </li>
+                
               ))}
             </div>
           </div>
