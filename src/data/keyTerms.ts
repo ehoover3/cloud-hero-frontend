@@ -397,7 +397,8 @@ export const terms = [
       "Cognito Sync: Enable cross-device syncing, i.e. user profile data across multiple devices",
       "Cognito Identity Pools: Grant users access to other AWS services, i.e. S3, DynamoDB",
       "Cognito User Pools: A user direcotry in Cognito, user can sign into web/mobile app",
-    ],
+   
+ ],
   },
   {
     name: "AWS Identity and Access Management (IAM)",
