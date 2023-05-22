@@ -1,0 +1,1 @@
+AWS Icons - https://aws.amazon.com/architecture/icons
