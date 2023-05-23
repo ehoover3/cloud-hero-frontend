@@ -11,13 +11,14 @@ import KeyTerms from "./pages/KeyTerms";
 import HandsOnTutorials from "./pages/HandsOnTutorials";
 import Other from './pages/Other'
 
+
 function App() {
  
   return (
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='practiceexam' element={<PracticeExam questions={questions} />} />
+        {/* <Route path='practiceexam' element={<PracticeExam questions={questions} />} /> */}
         <Route path='keyterms' element={<KeyTerms terms={terms} />} />
         <Route path='handsontutorials' element={<HandsOnTutorials />} />
         <Route path='other' element={<Other />} />
