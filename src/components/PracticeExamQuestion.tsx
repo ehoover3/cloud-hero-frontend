@@ -12,7 +12,7 @@ type Props = {
 
   const PracticeExamQuestion = ({ examQuestion } : Props) => {
     const [currentAnswer, setCurrentAnswer] = useState('');
-    const {updateScore, updateMissedQuestions, setShowNextButton, showResult, setShowResult} = usePracticeExamContext();
+    const {score, setScore, updateMissedQuestions, setShowNextButton, showResult, setShowResult} = usePracticeExamContext();
     const [shuffledOptions,  setShuffledOptions] = useState(examQuestion.options);
 
     useEffect(() => {
@@ -42,7 +42,7 @@ type Props = {
         return;
       }
       if(checkAnswer()){
-        updateScore();
+        setScore(score+1);
       } else {
         updateMissedQuestions(examQuestion);
       }

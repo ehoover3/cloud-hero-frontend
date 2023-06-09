@@ -10,7 +10,7 @@ const PracticeExamPage = ( ) => {
           <PracticeExam examQuestions={questions} />
         </PraciceExamProvider>
       </div>
-    )
+    );
   };
 
 export default PracticeExamPage;

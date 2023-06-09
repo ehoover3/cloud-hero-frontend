@@ -7,7 +7,7 @@ type PracticeExamContextType = {
     showNextButton: boolean,
     showResult: boolean,
     setMissedQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
-    updateScore: () => void,
+    setScore: (newScore: number) => void,
     updateMissedQuestions: (value: Question) => void,
     setShowNextButton: (value: React.SetStateAction<boolean>) => void,
     setShowResult: (value: React.SetStateAction<boolean>) => void,
@@ -20,10 +20,10 @@ const PracticeExamContext = createContext<PracticeExamContextType>({
     showNextButton: false,
     showResult: false,
     setMissedQuestions: () => ([]),
-    updateScore: () => {},
-    updateMissedQuestions: (value: Question) => {},
-    setShowNextButton: (value: React.SetStateAction<boolean>) => {},
-    setShowResult: (value: React.SetStateAction<boolean>) => {},
+    setScore: (newScore: number) => {console.log(newScore)},
+    updateMissedQuestions: (value: Question) => {console.log(value)},
+    setShowNextButton: (value: React.SetStateAction<boolean>) => {console.log(value)},
+    setShowResult: (value: React.SetStateAction<boolean>) => {console.log(value)},
 });
 
 type Props = {
@@ -34,10 +34,6 @@ function PraciceExamProvider({ children }: Props){
     const [score, setScore] = useState(0);
     const [showNextButton, setShowNextButton] = useState(false);
     const [showResult, setShowResult] = useState(false);
-
-    const updateScore = () => {
-        setScore(score+1);
-    }
     
 
     //Need current question number 
@@ -53,7 +49,7 @@ function PraciceExamProvider({ children }: Props){
         showNextButton,
         showResult,
         setMissedQuestions,
-        updateScore,
+        setScore,
         updateMissedQuestions,
         setShowNextButton,
         setShowResult

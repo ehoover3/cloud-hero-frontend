@@ -10,30 +10,47 @@ type Props = {
 const PracticeExam = ( { examQuestions } : Props) => {
     const [examQuestionArray, setExamQuestionsArray] = useState(examQuestions);
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const {score, missedQuestions, showNextButton, setShowNextButton, setMissedQuestions, setShowResult} = usePracticeExamContext();
+    const [showResetButton, setShowResetButton] = useState(false);
+    const {score, setScore, missedQuestions, showNextButton, setShowNextButton, setMissedQuestions, setShowResult} = usePracticeExamContext();
 
     const nextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
 
-        if(examQuestionArray.length-1 === currentQuestion)
+        if(examQuestionArray.length-1 === currentQuestion && !(missedQuestions.length === 0))
         {
-          console.log(missedQuestions);
-          setExamQuestionsArray(missedQuestions);
           setCurrentQuestion(0);
+          setExamQuestionsArray(missedQuestions);
           setMissedQuestions([]);
         }
-        if(examQuestionArray.length === 0){
-          
+        else if(examQuestionArray.length-1 === currentQuestion)
+        {
+          setShowResetButton(true);
         }
         setShowNextButton(false);
         setShowResult(false);
     }
 
+    const resetExam = () => {
+      setCurrentQuestion(0);
+      setScore(0);
+      setExamQuestionsArray(examQuestions);
+      setMissedQuestions([]);
+      setShowResetButton(false);
+    }
+
     return (
       <div>
         <p>Your score is {score}.</p>
-        <PracticeExamQuestion examQuestion={examQuestionArray[currentQuestion]}/>
-        {showNextButton && <button onClick={nextQuestion}>Next Question</button>}
+        {showResetButton ? 
+          (<div>
+            <button onClick={resetExam}>Reset</button>
+          </div>) 
+          : 
+          (<div>
+            <PracticeExamQuestion examQuestion={examQuestionArray[currentQuestion]}/>
+            {showNextButton && <button onClick={nextQuestion}>Next Question</button>}
+          </div>)
+        }
       </div>
     )
 };
