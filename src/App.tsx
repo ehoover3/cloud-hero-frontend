@@ -1,11 +1,10 @@
 
 import {   Routes  } from "react-router-dom";
-// import { questions } from "./data/practiceTestQuestions";
 import { terms } from "./data/keyTerms";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
-// import PracticeExam from "./pages/PracticeExam";
+import PracticeExamPage from "./pages/PracticeExamPage";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import KeyTerms from "./pages/KeyTerms";
@@ -20,7 +19,7 @@ function App() {
       <Router>
         <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='practiceexam' element={<PracticeExam questions={questions} />} /> */}
+        <Route path='practiceexam' element={<PracticeExamPage />} />
         <Route path='keyterms' element={<KeyTerms terms={terms} />} />
         <Route path='handsontutorials' element={<HandsOnTutorials />} />
         <Route path='other' element={<Other />} />
